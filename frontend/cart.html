@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="cart.css">
+    <script src="cart.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Your Shopping Cart</h1>
+    </header>
+
+    <div class="cart-container">
+        <!-- Cart Items -->
+        <div id="cart-items" class="cart-items">
+            <!-- Dynamically populated cart items will appear here -->
+        </div>
+
+        <!-- Cart Summary -->
+        <div class="cart-summary">
+            <h2>Cart Summary</h2>
+            <p><strong>Total:</strong> ₹<span id="total-price">0.00</span></p>
+            <p id="empty-cart-message" style="color: red; display: none;">Your cart is empty. Please add items to proceed.</p>
+            <!-- Button to Proceed to Checkout -->
+            <button id="proceed-checkout" class="btn" onclick="window.location.href='CheckoutPage.html'" disabled>Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <footer>
+        <a href="index.html" id="continue-shopping" class="btn">Continue Shopping</a>
+    </footer>
+
+    <script>
+        // Example function to check if there are items in the cart
+        function checkCart() {
+            const cartItems = document.getElementById("cart-items").children.length; // Number of cart items
+
+            if (cartItems === 0) {
+                document.getElementById("empty-cart-message").style.display = "block";
+                document.getElementById("proceed-checkout").disabled = true;
+            } else {
+                document.getElementById("empty-cart-message").style.display = "none";
+                document.getElementById("proceed-checkout").disabled = false;
+            }
+        }
+
+        // Call the checkCart function when the page loads
+        window.onload = checkCart;
+    </script>
+</body>
+</html>

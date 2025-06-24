@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="cart.css">
+    <script src="cart.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Your Shopping Cart</h1>
+    </header>
+
+    <div class="cart-container">
+        <!-- Cart Items -->
+        <div id="cart-items" class="cart-items">
+            <!-- Dynamically populated cart items will appear here -->
+        </div>
+
+        <!-- Cart Summary -->
+        <div class="cart-summary">
+            <h2>Cart Summary</h2>
+            <p><strong>Total:</strong> ₹<span id="total-price">0.00</span></p>
+            <button id="proceed-checkout" class="btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <footer>
+        <a href="index.html" id="continue-shopping" class="btn">Continue Shopping</a>
+    </footer>
+</body>
+</html>

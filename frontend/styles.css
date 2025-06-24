@@ -1,0 +1,238 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ===== Navigation Bar ===== */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 12px 24px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    margin: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    gap: 20px;
+}
+
+.nav-container h1 {
+    font-size: 28px;
+    color: #007bff;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* ===== Search Bar ===== */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+}
+
+.search-container input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 16px 10px 36px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.search-container input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    font-size: 16px;
+    color: #888;
+}
+
+/* ===== Auth Buttons & Logout ===== */
+.auth-buttons,
+.user-welcome {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.auth-btn,
+.logout-btn {
+    background: linear-gradient(to right, #007bff, #00c6ff);
+    border: none;
+    padding: 8px 16px;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    cursor: pointer;
+}
+
+.auth-btn:hover,
+.logout-btn:hover {
+    background: linear-gradient(to right, #0056b3, #00a3cc);
+}
+
+/* ===== Product List ===== */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 30px 20px;
+}
+
+.product {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s;
+    width: 280px;
+}
+
+.product:hover {
+    transform: translateY(-6px);
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.product h3 {
+    margin: 15px 10px 8px;
+    font-size: 1.1em;
+    color: #007bff;
+}
+
+.product p {
+    margin: 8px 0;
+    font-size: 1.05em;
+    font-weight: bold;
+    color: #333;
+}
+
+/* ===== Buttons on Cards ===== */
+.btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 14px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.95em;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.add-to-cart {
+    background-color: #28a745;
+}
+
+.add-to-cart:hover {
+    background-color: #218838;
+}
+
+.compare-price {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.compare-price:hover {
+    background-color: #e0a800;
+}
+
+/* ===== Floating Cart Button ===== */
+.cart-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #17a2b8;
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 40px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    z-index: 999;
+}
+
+.cart-button:hover {
+    background-color: #138496;
+}
+
+#cart-count {
+    font-weight: bold;
+    margin-left: 6px;
+}
+
+/* ===== Footer ===== */
+footer {
+    background-color: transparent;
+    color: #333;
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 0.95em;
+}
+
+footer a {
+    color: #007bff;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .search-container {
+        width: 100%;
+    }
+
+    .product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+    padding: 30px 40px;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+    }
+

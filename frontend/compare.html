@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Compare Prices</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 30px;
+            background-color: #f0f2f5;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .comparison-container {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .platform {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .platform:last-child {
+            border-bottom: none;
+        }
+
+        .platform h3 {
+            color: #007bff;
+            margin-bottom: 5px;
+        }
+
+        .platform p {
+            margin: 5px 0;
+        }
+
+        .error {
+            color: red;
+        }
+
+        .back-btn {
+            display: block;
+            width: 120px;
+            margin: 20px auto;
+            text-align: center;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        .back-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h2>Price Comparison</h2>
+    <div class="comparison-container" id="results">
+        Loading prices...
+    </div>
+
+    <a href="index.html" class="back-btn">← Back to Home</a>
+
+    <script>
+        async function fetchPriceComparison(productName) {
+            const response = await fetch('http://localhost:3000/api/compare-price', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ productName })
+            });
+
+            return response.json();
+        }
+
+        async function displayResults() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productName = urlParams.get('product');
+
+            if (!productName) {
+                document.getElementById('results').innerHTML = '<p class="error">No product provided.</p>';
+                return;
+            }
+
+            const data = await fetchPriceComparison(productName);
+            const container = document.getElementById('results');
+            container.innerHTML = '';
+
+            const amazon = data.amazon;
+            const flipkart = data.flipkart;
+
+            // Amazon
+            const amazonDiv = document.createElement('div');
+            amazonDiv.classList.add('platform');
+            amazonDiv.innerHTML = `<h3>Amazon</h3>
+                <p>${amazon.error ? `<span class="error">${amazon.error}</span>` : `${amazon.product} - ₹${amazon.price}`}</p>`;
+            container.appendChild(amazonDiv);
+
+            // Flipkart
+            const flipkartDiv = document.createElement('div');
+            flipkartDiv.classList.add('platform');
+            flipkartDiv.innerHTML = `<h3>Flipkart</h3>
+                <p>${flipkart.error ? `<span class="error">${flipkart.error}</span>` : `${flipkart.product} - ₹${flipkart.price}`}</p>`;
+            container.appendChild(flipkartDiv);
+        }
+
+        displayResults();
+    </script>
+</body>
+</html>
