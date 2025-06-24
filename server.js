@@ -47,6 +47,10 @@ const User = mongoose.model('User', {
 // --- Routes ---
 
 // Registration Route
+app.get('/healthz', (req, res) => {
+  res.status(200).send('OK');
+});
+
 app.post('/api/register', async (req, res) => {
   try {
     const { username, email, password } = req.body;
