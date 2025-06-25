@@ -74,7 +74,7 @@
 
     <script>
         async function fetchPriceComparison(productName) {
-            const response = await fetch('http://localhost:3000/api/compare-price', {
+            const response = await fetch('/api/compare-price', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
