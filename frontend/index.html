@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="cart.js" defer></script>
-    <style>
-        .user-welcome {
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home Page</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="cart.js" defer></script>
+  <style>
+   .user-welcome {
     background: linear-gradient(135deg, #6f42c1, #007bff);
     color: #fff;
     padding: 10px 20px;
@@ -138,116 +138,127 @@
 .search-input::placeholder {
     color: #aaa;
 }
-
-    </style>
+  </style>
 </head>
 <body>
-    <div class="nav-container">
-        <h1>Easify</h1>
-        <div class="search-container"> <!-- Unicode magnifying glass -->
-    <input type="text" id="search-input" class="search-input" placeholder="Search Products..." />
-        </div>
-       
-        <div class="user-welcome" id="user-welcome" style="display: none;">
-            <span class="welcome-text">Welcome back, <span id="username" class="username-highlight">User</span>!</span>
-            <a href="#" id="logout-btn" class="logout-btn">Logout</a>
-        </div>
-        <div class="auth-buttons">
-            <a href="login.html" class="auth-btn login">Login</a>
-            <a href="register.html" class="auth-btn register">Register</a>
-        </div>
-         <a href="contact.html" id="contact-us" class="btn">Contact Us</a>
+  <div class="nav-container">
+    <h1>Easify</h1>
+    <div class="search-container">
+      <input type="text" id="search-input" class="search-input" placeholder="Search Products..." />
     </div>
 
-    <div class="product-list">
-        <!-- Example Product 1 -->
-        <div class="product" data-name="Ant Esports Gaming Cabinet ICE-300">
-            <img src="./images/cabinet.jpg" alt="Product 1">
-            <h3>Ant Esports Gaming Cabinet ICE-300</h3>
-            <p>₹4349</p>
-            <button class="btn add-to-cart" data-id="1" data-name="Ant Esports Gaming Cabinet ICE-300" data-price="4349">Add to Cart</button>
-            <button class="btn compare-price" onclick="openComparePage('Ant Esports Gaming Cabinet ICE-300')">Compare Price</button>
-        </div>
-        <!-- Example Product 2 -->
-        <div class="product" data-name="Aquaminder Smart Water Bottle Glows & Beeps">
-            <img src="./images/smart.jpg" alt="Product 2">
-            <h3>Aquaminder Smart Water Bottle Glows & Beeps</h3>
-            <p>₹999</p>
-            <button class="btn add-to-cart" data-id="2" data-name="Aquaminder Smart Water Bottle Glows & Beeps" data-price="999">Add to Cart</button>
-            <button class="btn compare-price" onclick="openComparePage('Aquaminder Smart Water Bottle Glows & Beeps')">Compare Price</button>
-        </div>
-        <!-- Example Product 3 -->
-        <div class="product" data-name="Boldfit Water Bottles Stainless Steel Water Bottle">
-            <img src="./images/water bottle.jpg" alt="Boldfit Water Bottles Stainless Steel Water Bottle">
-            <h3>Boldfit Water Bottles Stainless Steel Water Bottle</h3>
-            <p>₹269</p>
-            <button class="btn add-to-cart" data-id="3" data-name="Boldfit Water Bottles Stainless Steel Water" data-price="269">Add to Cart</button>
-            <button class="btn compare-price" onclick="openComparePage('Boldfit Water Bottles Stainless Steel Water')">Compare Price</button>
-        </div>
-        <div class="product" data-name="boAt Bassheads 100 in Ear Wired Earphones with Mic">
-            <img src="./images/boat basshead 100.jpg" alt="Product 3">
-            <h3>boAt Bassheads 100 in Ear Wired Earphones with Mic</h3>
-            <p>₹298</p>
-            <button class="btn add-to-cart" data-id="3" data-name="boAt Bassheads 100 in Ear Wired Earphones with Mic" data-price="298">Add to Cart</button>
-            <button class="btn compare-price" onclick="openComparePage('boAt Bassheads 100 in Ear Wired Earphones with Mic')">Compare Price</button>
-        </div>
+    <div class="user-welcome" id="user-welcome" style="display: none;">
+      <span class="welcome-text">Welcome back, <span id="username" class="username-highlight">User</span>!</span>
+      <a href="#" id="logout-btn" class="logout-btn">Logout</a>
     </div>
-   
-    <!-- Cart Button - Made clickable with an anchor tag -->
-    <a href="cart.html" id="cart" class="cart-button">
-        <span id="cart-count">0</span> items in cart
-    </a>
+    <div class="auth-buttons">
+      <a href="login.html" class="auth-btn login">Login</a>
+      <a href="register.html" class="auth-btn register">Register</a>
+    </div>
+    <a href="contact.html" id="contact-us" class="btn">Contact Us</a>
+  </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Check login status
-            checkLoginStatus();
+  <!-- 🛍 Product container (will be filled dynamically) -->
+  <div class="product-list" id="product-list">
+    <!-- Dynamically loaded products will go here -->
+  </div>
 
-            // Search functionality
-            const searchInput = document.getElementById('search-input');
-            searchInput.addEventListener('input', function() {
-                const searchQuery = searchInput.value.toLowerCase();
-                const products = document.querySelectorAll('.product');
+  <a href="cart.html" id="cart" class="cart-button">
+    <span id="cart-count">0</span> items in cart
+  </a>
 
-                products.forEach(product => {
-                    const productName = product.getAttribute('data-name').toLowerCase();
-                    if (productName.includes(searchQuery)) {
-                        product.style.display = 'block'; // Show product
-                    } else {
-                        product.style.display = 'none'; // Hide product
-                    }
-                });
-            });
-        });
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      checkLoginStatus();
+      fetchAndDisplayProducts();
 
-        // Function to check login status
-        function checkLoginStatus() {
-            const loggedInUser = localStorage.getItem('loggedInUser');
-            if (loggedInUser) {
-                const userInfo = JSON.parse(loggedInUser);
-                document.getElementById('username').textContent = userInfo.username;
-                document.getElementById('user-welcome').style.display = 'inline';
-                document.getElementById('logout-btn').style.display = 'inline-block';
-                document.querySelector('.auth-buttons').style.display = 'none';
-            } else {
-                document.getElementById('user-welcome').style.display = 'none';
-                document.getElementById('logout-btn').style.display = 'none';
-                document.querySelector('.auth-buttons').style.display = 'flex';
-            }
-        }
+      // Search functionality
+      const searchInput = document.getElementById('search-input');
+      searchInput.addEventListener('input', function () {
+        const query = searchInput.value;
+        fetchAndDisplayProducts(query);
+      });
+    });
 
-        // Handle logout
-document.getElementById('logout-btn').addEventListener('click', function(e) {
-    e.preventDefault();
-    localStorage.removeItem('loggedInUser');
-    checkLoginStatus();
-    alert('You have been logged out successfully!');
-    window.location.href = 'login.html';  // 👈 Redirect to login
-});
-    function openComparePage(productName) {
-        const encodedProduct = encodeURIComponent(productName);
-        window.open(`compare.html?product=${encodedProduct}`, '_blank');
+    function checkLoginStatus() {
+      const loggedInUser = localStorage.getItem('loggedInUser');
+      if (loggedInUser) {
+        const userInfo = JSON.parse(loggedInUser);
+        document.getElementById('username').textContent = userInfo.username;
+        document.getElementById('user-welcome').style.display = 'inline';
+        document.getElementById('logout-btn').style.display = 'inline-block';
+        document.querySelector('.auth-buttons').style.display = 'none';
+      } else {
+        document.getElementById('user-welcome').style.display = 'none';
+        document.getElementById('logout-btn').style.display = 'none';
+        document.querySelector('.auth-buttons').style.display = 'flex';
+      }
     }
-    </script>
+
+    document.getElementById('logout-btn').addEventListener('click', function (e) {
+      e.preventDefault();
+      localStorage.removeItem('loggedInUser');
+      checkLoginStatus();
+      alert('You have been logged out successfully!');
+      window.location.href = 'login.html';
+    });
+
+    function openComparePage(productName) {
+      const encodedProduct = encodeURIComponent(productName);
+      window.open(`compare.html?product=${encodedProduct}`, '_blank');
+    }
+
+    // 🔁 Fetch products from /api/search
+   async function fetchAndDisplayProducts(query = '') {
+  try {
+    const res = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
+    const products = await res.json();
+    console.log(products); // Debug: Check what MongoDB returns for "image"
+
+    const productList = document.getElementById('product-list');
+    productList.innerHTML = ''; // Clear existing products
+
+    if (products.length === 0) {
+      productList.innerHTML = '<p>No products found.</p>';
+      return;
+    }
+
+    products.forEach(product => {
+      const div = document.createElement('div');
+      div.classList.add('product');
+      div.setAttribute('data-name', product.name);
+         console.log({
+    name: product.name,
+    image: product.image,
+    hasImage: !!product.image
+  });
+      // 1. Construct the correct image path
+      const imagePath = product.image 
+  ? `/images/${product.image}` 
+  : '/images/placeholder.jpg';
+
+    console.log('Constructed image path:', imagePath); // 🚨 Debug log
+    console.log("Image field from DB:", product.image);
+console.log("Constructed image path:", imagePath);
+
+      // 2. Render the product card
+      div.innerHTML = `
+      <img src="${imagePath}" alt="${product.name}" />
+
+
+        <h3>${product.name}</h3>
+        <p>₹${product.price}</p>
+        <button class="btn add-to-cart" data-id="${product._id}" data-name="${product.name}" data-price="${product.price}">Add to Cart</button>
+        <button class="btn compare-price" onclick="openComparePage('${product.name}')">Compare Price</button>
+      `;
+      
+
+      productList.appendChild(div);
+    });
+  } catch (err) {
+    console.error('Failed to load products:', err);
+  }
+}
+  </script>
 </body>
 </html>

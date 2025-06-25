@@ -8,7 +8,7 @@ const session = require('express-session');
 const fs = require('fs');
 
 const LoginHistory = require('./models/LoginHistory');
-const Product = require('./models/Product'); // For search functionality
+const Product = require('./models/Product');
 
 const app = express();
 
@@ -18,15 +18,19 @@ app.use(cors({
   credentials: true
 }));
 app.use(express.json());
+
+// ✅ Serve frontend files (index.html, etc.)
 app.use(express.static(path.join(__dirname, 'frontend')));
-app.use(express.static(path.join(__dirname, 'images'))); // Serve product images
+
+// ✅ Serve images publicly (your images should be in /public/images)
+app.use('/images', express.static(path.join(__dirname, 'public/images')));
 
 // Session middleware
 app.use(session({
   secret: process.env.SESSION_SECRET || 'your-secret-key',
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: false, maxAge: 86400000 }
+  cookie: { secure: false, maxAge: 86400000 } // 1 day
 }));
 
 // MongoDB Connection
@@ -34,8 +38,8 @@ mongoose.connect("mongodb+srv://sameedshaikh445:sameedshaikhmongodb55@easify.m6e
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
-.then(() => console.log("Connected to MongoDB"))
-.catch(err => console.error("MongoDB connection error:", err));
+.then(() => console.log("✅ Connected to MongoDB"))
+.catch(err => console.error("❌ MongoDB connection error:", err));
 
 // User Model
 const User = mongoose.model('User', {
@@ -44,13 +48,12 @@ const User = mongoose.model('User', {
   password: { type: String, required: true }
 });
 
-// --- Routes ---
-
-// Registration Route
+// Health check
 app.get('/healthz', (req, res) => {
   res.status(200).send('OK');
 });
 
+// Registration
 app.post('/api/register', async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -63,7 +66,7 @@ app.post('/api/register', async (req, res) => {
   }
 });
 
-// Login Route
+// Login
 app.post('/api/login', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -88,7 +91,7 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
-// Search Route
+// Product Search
 app.get('/api/search', async (req, res) => {
   const query = req.query.q || '';
   try {
@@ -101,7 +104,7 @@ app.get('/api/search', async (req, res) => {
   }
 });
 
-// Compare Price Route
+// Compare Price
 app.post('/api/compare-price', async (req, res) => {
   const { productName } = req.body;
 
@@ -129,11 +132,6 @@ app.post('/api/compare-price', async (req, res) => {
   }
 });
 
-// Serve index.html and frontend files (fallback)
-app.get(/^(?!\/api).*/, (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
-});
-
-// Start Server
+// Start server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`🚀 Server running at http://localhost:${PORT}`));

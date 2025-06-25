@@ -1,0 +1,82 @@
+[
+    {
+        "name": "boAt Rockerz 450 Wireless Headphones",
+        "price": 1499,
+        "image": "boat_headphones.jpg",
+        "description": "Bluetooth over-ear headphones with 40mm drivers and up to 15 hours playtime.",
+        "brand": "boAt",
+        "category": "Headphones"
+    },
+    {
+        "name": "Logitech MK215 Wireless Keyboard and Mouse Combo",
+        "price": 1399,
+        "image": "logitech_combo.jpg",
+        "description": "Compact wireless keyboard and mouse combo with 2.4GHz connection.",
+        "brand": "Logitech",
+        "category": "Accessories"
+    },
+    {
+        "name": "HP 15s Laptop AMD Ryzen 5",
+        "price": 42999,
+        "image": "hp_15s.jpg",
+        "description": "HP 15s Ryzen 5-5500U 15.6 inch laptop with 8GB RAM and 512GB SSD.",
+        "brand": "HP",
+        "category": "Laptops"
+    },
+    {
+        "name": "Samsung Galaxy M14 5G",
+        "price": 11999,
+        "image": "samsung_m14.jpg",
+        "description": "5G smartphone with 6000mAh battery and 50MP triple camera.",
+        "brand": "Samsung",
+        "category": "Mobiles"
+    },
+    {
+        "name": "Noise ColorFit Pulse Grand Smart Watch",
+        "price": 1999,
+        "image": "noise_watch.jpg",
+        "description": "Smart watch with 1.69\" display, 60 sports modes, and SpO2 monitor.",
+        "brand": "Noise",
+        "category": "Wearables"
+    },
+    {
+        "name": "Acer EK220Q 21.5 inch Full HD Monitor",
+        "price": 6999,
+        "image": "acer_monitor.jpg",
+        "description": "21.5 inch Full HD VA panel monitor with HDMI and VGA ports.",
+        "brand": "Acer",
+        "category": "Monitors"
+    },
+    {
+        "name": "Zebronics Zeb-Rover Wired Mouse",
+        "price": 199,
+        "image": "zebronics_mouse.jpg",
+        "description": "Ergonomic USB optical mouse with high precision.",
+        "brand": "Zebronics",
+        "category": "Accessories"
+    },
+    {
+        "name": "Mi 10000mAh Power Bank 3i",
+        "price": 1099,
+        "image": "mi_powerbank.jpg",
+        "description": "10W fast charging, dual input-output USB power bank.",
+        "brand": "Mi",
+        "category": "Power Banks"
+    },
+    {
+        "name": "JBL Go 3 Portable Bluetooth Speaker",
+        "price": 2499,
+        "image": "jbl_go3.jpg",
+        "description": "Waterproof mini speaker with punchy bass and 5 hours battery life.",
+        "brand": "JBL",
+        "category": "Speakers"
+    },
+    {
+        "name": "Amazon Echo Dot (4th Gen)",
+        "price": 3499,
+        "image": "echo_dot.jpg",
+        "description": "Smart speaker with Alexa and improved bass.",
+        "brand": "Amazon",
+        "category": "Smart Home"
+    }
+]

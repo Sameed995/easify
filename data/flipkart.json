@@ -1,18 +1,58 @@
 [
-    {
-        "product": "Ant Esports Gaming Cabinet ICE-300",
-        "price": 4299
-    },
-    {
-        "product": "Aquaminder Smart Water Bottle Glows & Beeps",
-        "price": 999
-    },
-    {
-        "product": "Boldfit Water Bottles Stainless Steel Water Bottle",
-        "price": 269
-    },
-    {
-        "product": "boAt Bassheads 100 in Ear Wired Earphones with Mic",
-        "price": 298
-    }
+  {
+    "product": "Ant Esports Gaming Cabinet ICE-300",
+    "price": 4299
+  },
+  {
+    "product": "Aquaminder Smart Water Bottle Glows & Beeps",
+    "price": 999
+  },
+  {
+    "product": "Boldfit Water Bottles Stainless Steel Water Bottle",
+    "price": 269
+  },
+  {
+    "product": "boAt Bassheads 100 in Ear Wired Earphones with Mic",
+    "price": 298
+  },
+  {
+    "product": "boAt Rockerz 450 Wireless Headphones",
+    "price": 1449
+  },
+  {
+    "product": "Logitech MK215 Wireless Keyboard and Mouse Combo",
+    "price": 1349
+  },
+  {
+    "product": "HP 15s Laptop AMD Ryzen 5",
+    "price": 43299
+  },
+  {
+    "product": "Samsung Galaxy M14 5G",
+    "price": 11749
+  },
+  {
+    "product": "Noise ColorFit Pulse Grand Smart Watch",
+    "price": 2049
+  },
+  {
+    "product": "Acer EK220Q 21.5 inch Full HD Monitor",
+    "price": 7099
+  },
+  {
+    "product": "Zebronics Zeb-Rover Wired Mouse",
+    "price": 229
+  },
+  {
+    "product": "Mi 10000mAh Power Bank 3i",
+    "price": 1149
+  },
+  {
+    "product": "JBL Go 3 Portable Bluetooth Speaker",
+    "price": 2549
+  },
+  {
+    "product": "Amazon Echo Dot (4th Gen)",
+    "price": 3450
+  }
 ]
