@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const itemId = button.dataset.id;
     const itemName = button.dataset.name;
     const itemPrice = parseFloat(button.dataset.price);
+    const itemImage = button.dataset.image || '/images/placeholder.jpg';
 
     let cart = getCart();
     const existingItem = cart.find(item => item.id === itemId);
@@ -35,11 +36,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (existingItem) {
       existingItem.quantity += 1;
     } else {
-      cart.push({ id: itemId, name: itemName, price: itemPrice, quantity: 1 });
+      cart.push({ id: itemId, name: itemName, price: itemPrice, quantity: 1, image: itemImage });
     }
 
     saveCart(cart);
     updateCartCount();
+
+    // Render cart UI after adding an item
+    renderCart();
   }
 
   // Listen for all clicks on the page
@@ -67,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const cartItem = document.createElement('div');
       cartItem.classList.add('cart-item');
       cartItem.innerHTML = `
-        <img src="./images/cabinet.jpg" alt="${item.name}">
+        <img src="${item.image || '/images/placeholder.jpg'}" alt="${item.name}">
         <h3>${item.name}</h3>
         <p>₹${item.price.toFixed(2)} x ${item.quantity}</p>
         <p><strong>Total:</strong> ₹${(item.price * item.quantity).toFixed(2)}</p>
@@ -77,6 +81,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     updateTotalPrice();
+
+    // Update buy buttons state every time the cart is rendered
+    updateBuyButtons();
   }
 
   function updateTotalPrice() {
@@ -85,6 +92,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
     totalPriceElement.textContent = total.toFixed(2);
     console.log('Total price updated:', total);
+  }
+  
+  function updateBuyButtons() {
+    const cart = getCart();
+    const amazonBtn = document.getElementById('buy-amazon');
+    const flipkartBtn = document.getElementById('buy-flipkart');
+
+    const amazonItem = cart.find(item => item.platform === 'Amazon');
+    const flipkartItem = cart.find(item => item.platform === 'Flipkart');
+
+    if (amazonItem && amazonBtn) {
+      amazonBtn.disabled = false;
+      amazonBtn.onclick = () => window.open(amazonItem.link, '_blank');
+    } else if (amazonBtn) {
+      amazonBtn.disabled = true;
+      amazonBtn.onclick = null;
+    }
+
+    if (flipkartItem && flipkartBtn) {
+      flipkartBtn.disabled = false;
+      flipkartBtn.onclick = () => window.open(flipkartItem.link, '_blank');
+    } else if (flipkartBtn) {
+      flipkartBtn.disabled = true;
+      flipkartBtn.onclick = null;
+    }
   }
 
   function removeItemFromCart(event) {

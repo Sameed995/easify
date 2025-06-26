@@ -1,58 +1,52 @@
 [
   {
-    "product": "Ant Esports Gaming Cabinet ICE-300",
-    "price": 4349
-  },
-  {
-    "product": "Aquaminder Smart Water Bottle Glows & Beeps",
-    "price": 1049
-  },
-  {
-    "product": "Boldfit Water Bottles Stainless Steel Water Bottle",
-    "price": 299
-  },
-  {
-    "product": "boAt Bassheads 100 in Ear Wired Earphones with Mic",
-    "price": 319
-  },
-  {
     "product": "boAt Rockerz 450 Wireless Headphones",
-    "price": 1499
+    "price": 1399,
+    "link":"https://amzn.in/d/h7nnVlU"
   },
   {
     "product": "Logitech MK215 Wireless Keyboard and Mouse Combo",
-    "price": 1399
+    "price": 1145,
+    "link":"https://amzn.in/d/3bTawOb"
   },
   {
     "product": "HP 15s Laptop AMD Ryzen 5",
-    "price": 42999
+    "price": 35999,
+    "link":"https://amzn.in/d/guWTTRH"
   },
   {
     "product": "Samsung Galaxy M14 5G",
-    "price": 11999
+    "price": 17990,
+    "link":"https://amzn.in/d/fMCft4z"
   },
   {
     "product": "Noise ColorFit Pulse Grand Smart Watch",
-    "price": 1999
+    "price": 1399,
+    "link":"https://amzn.in/d/44Riin0"
   },
   {
     "product": "Acer EK220Q 21.5 inch Full HD Monitor",
-    "price": 6999
+    "price": 5399,
+    "link":"https://amzn.in/d/789jsoW"
   },
   {
     "product": "Zebronics Zeb-Rover Wired Mouse",
-    "price": 199
+    "price": 299,
+    "link":"https://amzn.in/d/4MBRcp0"
   },
   {
     "product": "Mi 10000mAh Power Bank 3i",
-    "price": 1099
+    "price": 1299,
+    "link":"https://amzn.in/d/dNEpgH3"
   },
   {
     "product": "JBL Go 3 Portable Bluetooth Speaker",
-    "price": 2499
+    "price": 2799,
+    "link":"https://amzn.in/d/cuOO8Lg"
   },
   {
     "product": "Amazon Echo Dot (4th Gen)",
-    "price": 3499
+    "price": 9999,
+    "link":"https://amzn.in/d/1K1L8jk"
   }
 ]

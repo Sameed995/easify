@@ -1,53 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Cart</title>
-    <link rel="stylesheet" href="cart.css">
-    <script src="cart.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Cart</title>
+  <link rel="stylesheet" href="cart.css" />
+  <script src="cart.js" defer></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 20px;
+      background-color: #4285F4; /* blue background */
+      color: white; /* white text */
+      text-align: center;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .cart-container {
+      flex: 1;
+      padding: 20px;
+      background-color: #fafafa;
+
+      /* Flex for side-by-side layout */
+      display: flex;
+      gap: 30px; /* space between left and right */
+      align-items: flex-start;
+    }
+
+    #cart-items {
+      flex: 1; /* left side grows */
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      min-height: 300px; /* set min height */
+      overflow-y: auto; /* scroll if too tall */
+    }
+
+    .cart-summary {
+      max-width: 350px;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      text-align: center;
+      flex-shrink: 0; /* don’t shrink */
+    }
+
+    .btn {
+      padding: 10px 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      color: white;
+      font-size: 14px;
+      margin: 5px;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+      min-width: 150px;
+    }
+
+    #buy-amazon {
+      background-color: #FF9900;
+    }
+
+    #buy-amazon:hover {
+      background-color: #e68a00;
+    }
+
+    #buy-flipkart {
+      background-color: #2874F0;
+    }
+
+    #buy-flipkart:hover {
+      background-color: #1958c1;
+    }
+
+    #continue-shopping {
+      background-color: #2874F0;
+      text-decoration: none;
+      width: 200px;
+      margin: 0 auto;
+      display: block;
+      text-align: center;
+    }
+
+    #continue-shopping:hover {
+      background-color: #333;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      background-color: #f5f5f5;
+    }
+
+    #empty-cart-message {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Your Shopping Cart</h1>
-    </header>
+  <header>
+    <h1>Tracked Products</h1>
+  </header>
 
-    <div class="cart-container">
-        <!-- Cart Items -->
-        <div id="cart-items" class="cart-items">
-            <!-- Dynamically populated cart items will appear here -->
-        </div>
-
-        <!-- Cart Summary -->
-        <div class="cart-summary">
-            <h2>Cart Summary</h2>
-            <p><strong>Total:</strong> ₹<span id="total-price">0.00</span></p>
-            <p id="empty-cart-message" style="color: red; display: none;">Your cart is empty. Please add items to proceed.</p>
-            <!-- Button to Proceed to Checkout -->
-            <button id="proceed-checkout" class="btn" onclick="window.location.href='CheckoutPage.html'" disabled>Proceed to Checkout</button>
-        </div>
+  <div class="cart-container">
+    <div id="cart-items" class="cart-items">
+      <!-- Dynamically populated cart items will appear here -->
     </div>
 
-    <footer>
-        <a href="index.html" id="continue-shopping" class="btn">Continue Shopping</a>
-    </footer>
+    <div class="cart-summary">
+      <h2>Product Summary</h2>
+      <p><strong>Total:</strong> ₹<span id="total-price">0.00</span></p>
+      <p id="empty-cart-message" style="display: none;">Your cart is empty. Please add items to proceed.</p>
 
-    <script>
-        // Example function to check if there are items in the cart
-        function checkCart() {
-            const cartItems = document.getElementById("cart-items").children.length; // Number of cart items
+      <button id="buy-amazon" class="btn" disabled>Buy from Amazon</button>
+      <button id="buy-flipkart" class="btn" disabled>Buy from Flipkart</button>
+    </div>
+  </div>
 
-            if (cartItems === 0) {
-                document.getElementById("empty-cart-message").style.display = "block";
-                document.getElementById("proceed-checkout").disabled = true;
-            } else {
-                document.getElementById("empty-cart-message").style.display = "none";
-                document.getElementById("proceed-checkout").disabled = false;
-            }
-        }
+  <footer>
+    <a href="index.html" id="continue-shopping" class="btn">Back To HomePage</a>
+  </footer>
 
-        // Call the checkCart function when the page loads
-        window.onload = checkCart;
-    </script>
+  <script>
+    function checkCart() {
+      const cartItems = document.getElementById("cart-items").children.length;
+      const isEmpty = cartItems === 0;
+      document.getElementById("empty-cart-message").style.display = isEmpty ? "block" : "none";
+      document.getElementById("buy-amazon").disabled = isEmpty;
+      document.getElementById("buy-flipkart").disabled = isEmpty;
+    }
+
+    window.onload = checkCart;
+  </script>
 </body>
 </html>

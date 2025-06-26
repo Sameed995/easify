@@ -203,10 +203,12 @@
       window.location.href = 'login.html';
     });
 
-    function openComparePage(productName) {
-      const encodedProduct = encodeURIComponent(productName);
-      window.open(`compare.html?product=${encodedProduct}`, '_blank');
-    }
+   function openComparePage(productName, productImage) {
+  const encodedProduct = encodeURIComponent(productName);
+  const encodedImage = encodeURIComponent(productImage || 'placeholder.jpg');
+  window.open(`compare.html?product=${encodedProduct}&image=${encodedImage}`, '_blank');
+}
+
 
     // 🔁 Fetch products from /api/search
    async function fetchAndDisplayProducts(query = '') {
@@ -242,18 +244,16 @@
 console.log("Constructed image path:", imagePath);
 
       // 2. Render the product card
-      div.innerHTML = `
-      <img src="${imagePath}" alt="${product.name}" />
+    div.innerHTML = `
+  <img src="${imagePath}" alt="${product.name}" />
+  <h3>${product.name}</h3>
+  <p>₹${product.price}</p>
+  <button class="btn compare-price" onclick="openComparePage('${product.name}', '${imagePath}')">Compare Price</button>
+`;
 
-
-        <h3>${product.name}</h3>
-        <p>₹${product.price}</p>
-        <button class="btn add-to-cart" data-id="${product._id}" data-name="${product.name}" data-price="${product.price}">Add to Cart</button>
-        <button class="btn compare-price" onclick="openComparePage('${product.name}')">Compare Price</button>
-      `;
       
 
-      productList.appendChild(div);
+productList.appendChild(div);
     });
   } catch (err) {
     console.error('Failed to load products:', err);

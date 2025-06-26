@@ -1,122 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Compare Prices</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            margin: 0;
-            padding: 30px;
-            background-color: #f0f2f5;
-        }
+  <meta charset="UTF-8">
+  <title>Compare Prices</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 30px;
+      background-color: #f0f2f5;
+    }
 
-        h2 {
-            text-align: center;
-            color: #333;
-        }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
 
-        .comparison-container {
-            max-width: 600px;
-            margin: 30px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-        }
+    .comparison-container {
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
 
-        .platform {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-        }
+    .platform {
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+    }
 
-        .platform:last-child {
-            border-bottom: none;
-        }
+    .platform:last-child {
+      border-bottom: none;
+    }
 
-        .platform h3 {
-            color: #007bff;
-            margin-bottom: 5px;
-        }
+    .platform h3 {
+      color: #007bff;
+      margin-bottom: 5px;
+    }
 
-        .platform p {
-            margin: 5px 0;
-        }
+    .platform p {
+      margin: 5px 0;
+    }
 
-        .error {
-            color: red;
-        }
+    .error {
+      color: red;
+    }
 
-        .back-btn {
-            display: block;
-            width: 120px;
-            margin: 20px auto;
-            text-align: center;
-            padding: 10px 15px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-        }
+    .buy-btn {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 8px 14px;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
 
-        .back-btn:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    .buy-btn.amazon {
+      background-color: #FF9900;
+    }
+
+    .buy-btn.amazon:hover {
+      background-color: #e68a00;
+    }
+
+    .buy-btn.flipkart {
+      background-color: #2874F0;
+    }
+
+    .buy-btn.flipkart:hover {
+      background-color: #1958c1;
+    }
+
+    .track-btn {
+      margin-left: 10px;
+      background-color: #28a745;
+    }
+
+    .track-btn:hover {
+      background-color: #218838;
+    }
+
+    .back-btn {
+      display: block;
+      width: 140px;
+      margin: 30px auto 0;
+      text-align: center;
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+
+    .back-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .product-info {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .product-info img {
+      max-width: 200px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .product-info h3 {
+      margin-top: 10px;
+      color: #333;
+    }
+  </style>
 </head>
 <body>
-    <h2>Price Comparison</h2>
-    <div class="comparison-container" id="results">
-        Loading prices...
-    </div>
+  <h2>Price Comparison</h2>
+  <div class="comparison-container" id="results">
+    Loading prices...
+  </div>
 
-    <a href="index.html" class="back-btn">← Back to Home</a>
+  <a href="index.html" class="back-btn">&larr; Back to Home</a>
 
-    <script>
-        async function fetchPriceComparison(productName) {
-            const response = await fetch('/api/compare-price', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ productName })
-            });
+  <script>
+    async function fetchPriceComparison(productName) {
+      try {
+        const response = await fetch('/api/compare-price', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ productName })
+        });
 
-            return response.json();
-        }
+        if (!response.ok) throw new Error('Failed to fetch data');
+        return await response.json();
+      } catch (err) {
+        return {
+          amazon: { error: err.message },
+          flipkart: { error: err.message }
+        };
+      }
+    }
 
-        async function displayResults() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const productName = urlParams.get('product');
+    function trackPrice(platform, productName, price, image, link) {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      cart.push({
+        id: `${platform}-${productName}`,
+        name: `${productName} (${platform})`,
+        price: price,
+        image: image,
+        quantity: 1,
+        platform: platform,
+        link: link
+      });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`Tracking started for ${productName} on ${platform}`);
+    }
 
-            if (!productName) {
-                document.getElementById('results').innerHTML = '<p class="error">No product provided.</p>';
-                return;
-            }
+    async function displayResults() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const productName = urlParams.get('product');
+      const productImage = urlParams.get('image');
 
-            const data = await fetchPriceComparison(productName);
-            const container = document.getElementById('results');
-            container.innerHTML = '';
+      const container = document.getElementById('results');
 
-            const amazon = data.amazon;
-            const flipkart = data.flipkart;
+      if (!productName) {
+        container.innerHTML = '<p class="error">No product provided.</p>';
+        return;
+      }
 
-            // Amazon
-            const amazonDiv = document.createElement('div');
-            amazonDiv.classList.add('platform');
-            amazonDiv.innerHTML = `<h3>Amazon</h3>
-                <p>${amazon.error ? `<span class="error">${amazon.error}</span>` : `${amazon.product} - ₹${amazon.price}`}</p>`;
-            container.appendChild(amazonDiv);
+      // Show product image and name
+      container.innerHTML = `
+        <div class="product-info">
+          <img src="${productImage}" alt="${productName}" />
+          <h3>${productName}</h3>
+        </div>
+      `;
 
-            // Flipkart
-            const flipkartDiv = document.createElement('div');
-            flipkartDiv.classList.add('platform');
-            flipkartDiv.innerHTML = `<h3>Flipkart</h3>
-                <p>${flipkart.error ? `<span class="error">${flipkart.error}</span>` : `${flipkart.product} - ₹${flipkart.price}`}</p>`;
-            container.appendChild(flipkartDiv);
-        }
+      const data = await fetchPriceComparison(productName);
 
-        displayResults();
-    </script>
+      // Amazon
+      const amazon = data.amazon;
+      const amazonDiv = document.createElement('div');
+      amazonDiv.classList.add('platform');
+      amazonDiv.innerHTML = `
+        <h3>Amazon</h3>
+        ${amazon.error ? `<p class="error">${amazon.error}</p>` : `
+          <p>${amazon.product} - ₹${amazon.price}</p>
+          <a href="${amazon.link || '#'}" target="_blank" class="buy-btn amazon">Buy on Amazon</a>
+          <button class="buy-btn track-btn" onclick="trackPrice('Amazon', '${productName}', ${amazon.price}, '${productImage}', '${amazon.link}')">Track Price</button>
+        `}
+      `;
+      container.appendChild(amazonDiv);
+
+      // Flipkart
+      const flipkart = data.flipkart;
+      const flipkartDiv = document.createElement('div');
+      flipkartDiv.classList.add('platform');
+      flipkartDiv.innerHTML = `
+        <h3>Flipkart</h3>
+        ${flipkart.error ? `<p class="error">${flipkart.error}</p>` : `
+          <p>${flipkart.product} - ₹${flipkart.price}</p>
+          <a href="${flipkart.link || '#'}" target="_blank" class="buy-btn flipkart">Buy on Flipkart</a>
+          <button class="buy-btn track-btn" onclick="trackPrice('Flipkart', '${productName}', ${flipkart.price}, '${productImage}', '${flipkart.link}')">Track Price</button>
+        `}
+      `;
+      container.appendChild(flipkartDiv);
+    }
+
+    displayResults();
+  </script>
 </body>
 </html>
