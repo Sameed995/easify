@@ -1,148 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Home Page</title>
   <link rel="stylesheet" href="styles.css" />
   <script src="cart.js" defer></script>
   <style>
-   .user-welcome {
-    background: linear-gradient(135deg, #6f42c1, #007bff);
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 1.1em;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    animation: fadeInSlide 1s ease-out;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+    .user-welcome {
+      background: linear-gradient(135deg, #6f42c1, #007bff);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 1.1em;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      animation: fadeInSlide 1s ease-out;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-.username-highlight {
-    background-color: rgba(255, 255, 255, 0.2);
-    padding: 2px 6px;
-    border-radius: 6px;
-    font-style: italic;
-}
+    .username-highlight {
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-style: italic;
+    }
 
-.logout-btn {
-    margin-left: 10px;
-    padding: 6px 12px;
-    background-color: #ff4757;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: 500;
-    transition: background-color 0.3s;
-}
+    .logout-btn {
+      margin-left: 10px;
+      padding: 6px 12px;
+      background-color: #ff4757;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
 
-.logout-btn:hover {
-    background-color: #e84118;
-}
+    .logout-btn:hover {
+      background-color: #e84118;
+    }
 
-@keyframes fadeInSlide {
-    from {
+    @keyframes fadeInSlide {
+      from {
         opacity: 0;
         transform: translateY(-10px);
-    }
-    to {
+      }
+      to {
         opacity: 1;
         transform: translateY(0);
+      }
     }
-}
 
-        /* Navigation bar */
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: #f8f9fa;
-        }
-        
-        .auth-buttons {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .auth-btn {
-            padding: 8px 16px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        
-        .auth-btn:hover {
-            background-color: #45a049;
-        }
-        
-        .auth-btn.register {
-            background-color: #2196F3;
-        }
-        
-        .auth-btn.register:hover {
-            background-color: #0b7dda;
-        }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #f8f9fa;
+    }
 
-        /* Search bar style */
-        .search-container {
-            display: flex;
-            align-items: center;
-        }
+    .logo-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-        .search-input {
-            padding: 8px 12px;
-            font-size: 14px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            width: 200px;
-        }
-        .search-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    background: white;
-    border-radius: 30px;
-    padding: 10px 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
-}
+    .logo-title img {
+      height: 40px;
+      width: 40px;
+      object-fit: contain;
+    }
 
-.search-container:focus-within {
-    box-shadow: 0 0 10px rgba(0, 123, 255, 0.6);
-}
+    .auth-buttons {
+      display: flex;
+      gap: 10px;
+    }
 
-.search-icon {
-    font-size: 18px;
-    color: #888;
-    margin-right: 10px;
-}
+    .auth-btn {
+      padding: 8px 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-.search-input {
-    border: none;
-    outline: none;
-    font-size: 15px;
-    width: 200px;
-    padding: 8px 0;
-    background: transparent;
-    color: #333;
-}
+    .auth-btn:hover {
+      background-color: #45a049;
+    }
 
-.search-input::placeholder {
-    color: #aaa;
-}
+    .auth-btn.register {
+      background-color: #2196F3;
+    }
+
+    .auth-btn.register:hover {
+      background-color: #0b7dda;
+    }
+
+    .search-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      background: white;
+      border-radius: 30px;
+      padding: 10px 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .search-container:focus-within {
+      box-shadow: 0 0 10px rgba(0, 123, 255, 0.6);
+    }
+
+    .search-input {
+      border: none;
+      outline: none;
+      font-size: 15px;
+      width: 200px;
+      padding: 8px 0;
+      background: transparent;
+      color: #333;
+    }
+
+    .search-input::placeholder {
+      color: #aaa;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin: 0;
+      color: #333;
+    }
   </style>
 </head>
 <body>
   <div class="nav-container">
-    <h1>Easify</h1>
+    <div class="logo-title">
+      <img src="/images/logo.png" alt="Easify Logo" />
+      <h1>Easify</h1>
+    </div>
+
     <div class="search-container">
       <input type="text" id="search-input" class="search-input" placeholder="Search Products..." />
     </div>
@@ -151,14 +154,16 @@
       <span class="welcome-text">Welcome back, <span id="username" class="username-highlight">User</span>!</span>
       <a href="#" id="logout-btn" class="logout-btn">Logout</a>
     </div>
+
     <div class="auth-buttons">
       <a href="login.html" class="auth-btn login">Login</a>
       <a href="register.html" class="auth-btn register">Register</a>
     </div>
+
     <a href="contact.html" id="contact-us" class="btn">Contact Us</a>
   </div>
 
-  <!-- 🛍 Product container (will be filled dynamically) -->
+  <!-- 🛍 Product container -->
   <div class="product-list" id="product-list">
     <!-- Dynamically loaded products will go here -->
   </div>
@@ -172,7 +177,6 @@
       checkLoginStatus();
       fetchAndDisplayProducts();
 
-      // Search functionality
       const searchInput = document.getElementById('search-input');
       searchInput.addEventListener('input', function () {
         const query = searchInput.value;
@@ -203,62 +207,47 @@
       window.location.href = 'login.html';
     });
 
-   function openComparePage(productName, productImage) {
-  const encodedProduct = encodeURIComponent(productName);
-  const encodedImage = encodeURIComponent(productImage || 'placeholder.jpg');
-  window.open(`compare.html?product=${encodedProduct}&image=${encodedImage}`, '_blank');
-}
-
-
-    // 🔁 Fetch products from /api/search
-   async function fetchAndDisplayProducts(query = '') {
-  try {
-    const res = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
-    const products = await res.json();
-    console.log(products); // Debug: Check what MongoDB returns for "image"
-
-    const productList = document.getElementById('product-list');
-    productList.innerHTML = ''; // Clear existing products
-
-    if (products.length === 0) {
-      productList.innerHTML = '<p>No products found.</p>';
-      return;
+    function openComparePage(productName, productImage) {
+      const encodedProduct = encodeURIComponent(productName);
+      const encodedImage = encodeURIComponent(productImage || 'placeholder.jpg');
+      window.open(`compare.html?product=${encodedProduct}&image=${encodedImage}`, '_blank');
     }
 
-    products.forEach(product => {
-      const div = document.createElement('div');
-      div.classList.add('product');
-      div.setAttribute('data-name', product.name);
-         console.log({
-    name: product.name,
-    image: product.image,
-    hasImage: !!product.image
-  });
-      // 1. Construct the correct image path
-      const imagePath = product.image 
-  ? `/images/${product.image}` 
-  : '/images/placeholder.jpg';
+    async function fetchAndDisplayProducts(query = '') {
+      try {
+        const res = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
+        const products = await res.json();
 
-    console.log('Constructed image path:', imagePath); // 🚨 Debug log
-    console.log("Image field from DB:", product.image);
-console.log("Constructed image path:", imagePath);
+        const productList = document.getElementById('product-list');
+        productList.innerHTML = '';
 
-      // 2. Render the product card
-    div.innerHTML = `
-  <img src="${imagePath}" alt="${product.name}" />
-  <h3>${product.name}</h3>
-  <p>₹${product.price}</p>
-  <button class="btn compare-price" onclick="openComparePage('${product.name}', '${imagePath}')">Compare Price</button>
-`;
+        if (products.length === 0) {
+          productList.innerHTML = '<p>No products found.</p>';
+          return;
+        }
 
-      
+        products.forEach(product => {
+          const div = document.createElement('div');
+          div.classList.add('product');
+          div.setAttribute('data-name', product.name);
 
-productList.appendChild(div);
-    });
-  } catch (err) {
-    console.error('Failed to load products:', err);
-  }
-}
+          const imagePath = product.image 
+            ? `/images/${product.image}` 
+            : '/images/placeholder.jpg';
+
+          div.innerHTML = `
+            <img src="${imagePath}" alt="${product.name}" />
+            <h3>${product.name}</h3>
+            <p>₹${product.price}</p>
+            <button class="btn compare-price" onclick="openComparePage('${product.name}', '${imagePath}')">Compare Price</button>
+          `;
+
+          productList.appendChild(div);
+        });
+      } catch (err) {
+        console.error('Failed to load products:', err);
+      }
+    }
   </script>
 </body>
 </html>

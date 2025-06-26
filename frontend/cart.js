@@ -95,27 +95,34 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
   function updateBuyButtons() {
-    const cart = getCart();
-    const amazonBtn = document.getElementById('buy-amazon');
-    const flipkartBtn = document.getElementById('buy-flipkart');
+   const cart = getCart();
+  const amazonBtn = document.getElementById('buy-amazon');
+  const flipkartBtn = document.getElementById('buy-flipkart');
 
-    const amazonItem = cart.find(item => item.platform === 'Amazon');
-    const flipkartItem = cart.find(item => item.platform === 'Flipkart');
+  const amazonItems = cart.filter(item => item.platform === 'Amazon' && item.link);
+  const flipkartItems = cart.filter(item => item.platform === 'Flipkart' && item.link);
 
-    if (amazonItem && amazonBtn) {
-      amazonBtn.disabled = false;
-      amazonBtn.onclick = () => window.open(amazonItem.link, '_blank');
-    } else if (amazonBtn) {
-      amazonBtn.disabled = true;
-      amazonBtn.onclick = null;
-    }
+  amazonBtn.disabled = amazonItems.length === 0;
+  flipkartBtn.disabled = flipkartItems.length === 0;
 
-    if (flipkartItem && flipkartBtn) {
-      flipkartBtn.disabled = false;
-      flipkartBtn.onclick = () => window.open(flipkartItem.link, '_blank');
-    } else if (flipkartBtn) {
-      flipkartBtn.disabled = true;
-      flipkartBtn.onclick = null;
+  amazonBtn.onclick = () => {
+    openLinksInNewTabs(amazonItems.map(item => item.link));
+  };
+
+  flipkartBtn.onclick = () => {
+    openLinksInNewTabs(flipkartItems.map(item => item.link));
+  };
+}
+
+function openLinksInNewTabs(links) {
+  for (let i = 0; i < links.length; i++) {
+    const link = links[i];
+    setTimeout(() => {
+      const newTab = window.open(link, '_blank');
+      if (!newTab) {
+        alert('Popup blocked! Please allow popups for this website.');
+      }
+    }, i * 300); // 300ms delay between tabs
     }
   }
 

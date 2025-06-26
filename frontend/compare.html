@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <meta charset="UTF-8">
   <title>Compare Prices</title>
   <style>
@@ -158,11 +159,22 @@
       alert(`Tracking started for ${productName} on ${platform}`);
     }
 
+    function checkForPriceDrop(platform, productName, newPrice) {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const id = `${platform}-${productName}`;
+      const tracked = cart.find(item => item.id === id);
+
+      if (tracked && newPrice < tracked.price) {
+        alert(`🔻 Price drop detected for ${productName} on ${platform}!\nOld: ₹${tracked.price}\nNew: ₹${newPrice}`);
+        tracked.price = newPrice;
+        localStorage.setItem('cart', JSON.stringify(cart));
+      }
+    }
+
     async function displayResults() {
       const urlParams = new URLSearchParams(window.location.search);
       const productName = urlParams.get('product');
       const productImage = urlParams.get('image');
-
       const container = document.getElementById('results');
 
       if (!productName) {
@@ -180,8 +192,14 @@
 
       const data = await fetchPriceComparison(productName);
 
-      // Amazon
       const amazon = data.amazon;
+      const flipkart = data.flipkart;
+
+      // 🔔 Check for price drops
+      if (!amazon.error) checkForPriceDrop('Amazon', productName, amazon.price);
+      if (!flipkart.error) checkForPriceDrop('Flipkart', productName, flipkart.price);
+
+      // Amazon
       const amazonDiv = document.createElement('div');
       amazonDiv.classList.add('platform');
       amazonDiv.innerHTML = `
@@ -195,7 +213,6 @@
       container.appendChild(amazonDiv);
 
       // Flipkart
-      const flipkart = data.flipkart;
       const flipkartDiv = document.createElement('div');
       flipkartDiv.classList.add('platform');
       flipkartDiv.innerHTML = `
