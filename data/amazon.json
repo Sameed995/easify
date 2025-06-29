@@ -265,5 +265,40 @@
     "product": "CrossBeats Ignite S5 Smartwatch",
     "price":2998,
     "link":"https://amzn.in/d/iVMjBLP"
+  },
+  {
+  "product": "Samsung Galaxy Book2",
+    "price":56999,
+    "link":"https://amzn.in/d/4eW4u7W"
+  },
+  {
+    "product": "MSI Modern 14 Laptop",
+    "price":42711,
+    "link":"https://amzn.in/d/iYQOBho"
+  },
+  {
+    "product": "Acer Aspire 5 Laptop",
+    "price":59990,
+    "link":"https://amzn.in/d/bcdkaqC"
+  },
+  {
+    "product": "Apple MacBook Air M1",
+    "price":59990,
+    "link":"https://amzn.in/d/avGLEfc"
+  },
+  {
+   "product": "Dell Inspiron 14 Laptop",
+    "price":71490,
+    "link":"https://amzn.in/d/5yRMfEk"
+  },
+  {
+   "product": "Lenovo IdeaPad Slim 3 Laptop",
+    "price":48850,
+    "link":"https://amzn.in/d/aOljWMH"
+  },
+  {
+     "product": "ASUS VivoBook 15 Laptop",
+    "price":53990,
+    "link":"https://amzn.in/d/741Rsgq"
   }
 ]
