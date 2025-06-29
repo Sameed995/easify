@@ -137,6 +137,57 @@
       margin: 0;
       color: #333;
     }
+
+    .product-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .product {
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 10px;
+      max-width: 200px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      background: white;
+    }
+
+    .product img {
+      width: 100%;
+      height: 150px;
+      object-fit: contain;
+    }
+
+    .compare-price {
+      margin-top: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .compare-price:hover {
+      background-color: #0056b3;
+    }
+
+    .cart-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #28a745;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 30px;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
@@ -163,10 +214,7 @@
     <a href="contact.html" id="contact-us" class="btn">Contact Us</a>
   </div>
 
-  <!-- 🛍 Product container -->
-  <div class="product-list" id="product-list">
-    <!-- Dynamically loaded products will go here -->
-  </div>
+  <div class="product-list" id="product-list"></div>
 
   <a href="cart.html" id="cart" class="cart-button">
     <span id="cart-count">0</span> items in cart
@@ -175,11 +223,16 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       checkLoginStatus();
-      fetchAndDisplayProducts();
 
       const searchInput = document.getElementById('search-input');
+      const savedQuery = localStorage.getItem('searchQuery') || '';
+      searchInput.value = savedQuery;
+
+      fetchAndDisplayProducts(savedQuery);
+
       searchInput.addEventListener('input', function () {
         const query = searchInput.value;
+        localStorage.setItem('searchQuery', query);
         fetchAndDisplayProducts(query);
       });
     });
@@ -226,7 +279,6 @@
           return;
         }
 
-       // 🔀 Shuffle the product array
         products.sort(() => 0.5 - Math.random());
 
         products.forEach(product => {
@@ -243,14 +295,14 @@
             <h3>${product.name}</h3>
             <p>₹${product.price}</p>
             <button class="btn compare-price" onclick="openComparePage('${product.name}', '${imagePath}')">Compare Price</button>
-          `; 
+          `;
 
           productList.appendChild(div);
-        }); 
+        });
       } catch (err) {
         console.error('Failed to load products:', err);
-      } 
-    } 
+      }
+    }
   </script>
 </body>
 </html>
