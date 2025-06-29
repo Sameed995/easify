@@ -45,8 +45,225 @@
     "link":"https://amzn.in/d/cuOO8Lg"
   },
   {
+
     "product": "Amazon Echo Dot (4th Gen)",
     "price": 9999,
     "link":"https://amzn.in/d/1K1L8jk"
+  },
+  {
+    "product": "Logitech M331 Silent Plus Wireless Mouse",
+    "price": 1145,
+    "link":"https://amzn.in/d/9dQFzPp"
+  },
+  {
+    "product": "HP 150 Wired Mouse",
+    "price": 399,
+    "link":"https://amzn.in/d/bFW7ein"
+  },
+  {
+    "product": "Lenovo 300 Wired Plug & Play USB Mouse",
+    "price": 279,
+    "link":"https://amzn.in/d/3yscrVP"
+  },
+  {
+    "product": "Logitech MX Master 3S Wireless Mouse",
+    "price": 9495,
+    "link":"https://amzn.in/d/5fn4OuD"
+  },
+  {
+    "product": "Zebronics Zeb-Transformer-M Gaming Mouse",
+    "price": 399,
+    "link":"https://amzn.in/d/fZVATpZ"
+  },
+  {
+    "product": "Redragon M808 Storm Wired Gaming Mouse",
+    "price": 7595,
+    "link":"https://amzn.in/d/fbKd2Qs"
+  },
+  {
+    "product": "Dell MS116 Wired Optical Mouse",
+    "price": 297,
+    "link":"https://amzn.in/d/fYuOGov"
+  },
+  {
+    "product": "Cosmic Byte Firestorm Wired Gaming Mouse",
+    "price": 1049,
+    "link":"https://amzn.in/d/3EaaZT3"
+  },
+  {
+    "product": "HP Z3700 Wireless Mouse",
+    "price": 899,
+    "link":"https://amzn.in/d/39LE0nN"
+  },
+  {
+    "product": "Razer DeathAdder Essential Gaming Mouse",
+    "price": 1399,
+    "link":"https://amzn.in/d/bvfqHeV"
+  },
+  {
+    "product": "LG 22MP68VQ 22 inch IPS Monitor",
+    "price":6299,
+    "link":"https://amzn.in/d/5ocdPPT"
+  },
+  {
+    "product": "Samsung 24 inch LED Monitor LF24T350",
+    "price":6999,
+    "link":"https://amzn.in/d/9JYpTzT"
+  },
+  {
+    "product": "Dell SE2422H 24 inch Monitor",
+    "price":9499,
+    "link":"https://amzn.in/d/fIHGxK3"
+  },
+  {
+    "product": "Lenovo L22e-40 21.5 inch Monitor",
+    "price":7199,
+    "link":"https://amzn.in/d/14GvN5I"
+  },
+  {
+    "product": "ViewSonic VA2215-H 22 inch Monitor",
+    "price":5599,
+    "link":"https://amzn.in/d/hkOuzrW"
+  },
+  {
+    "product": "Zebronics Zeb-V19HD 21.5 inch Monitor",
+    "price":2699,
+    "link":"https://amzn.in/d/2CPjs83"
+  },
+  {
+    "product": "BenQ GW2480 24 inch Eye Care Monitor",
+    "price":10990,
+    "link":"https://amzn.in/d/bYYYsiM"
+  },
+  {
+    "product": "MSI PRO MP2412 23.8 Inch Full HD Office Monitor",
+    "price":6999,
+    "link":"https://amzn.in/d/h5UXVj2"
+  },
+  {
+    "product": "HP M22f 21.5 inch Full HD Monitor",
+    "price":8999,
+    "link":"https://amzn.in/d/gArPYlJ"
+  },
+  {
+    "product": "Sony WH-CH520 Headphones",
+    "price":3943,
+    "link":"https://amzn.in/d/8PXYRSi"
+  },
+  {
+    "product": "ZEBRONICS Zeb-Thunder PRO Headphones",
+    "price":989,
+    "link":"https://amzn.in/d/7hIRtT6"
+  },
+  {
+    "product": "JBL Tune 510BT Headphones",
+    "price":2799,
+    "link":"https://amzn.in/d/hVIflx4"
+  },
+  {
+    "product": "Boult Q Over Ear Bluetooth Headphones",
+    "price":1999,
+    "link":"https://amzn.in/d/hkRZOod"
+  },
+  {
+    "product": "Sennheiser HD 200 Headphones",
+    "price":4379,
+    "link":"https://amzn.in/d/79Z0nj3"
+  },
+  {
+    "product": "Realme Buds Wireless 3 Neo Neckband Headphones",
+    "price":1299,
+    "link":"https://amzn.in/d/0ZepBYE"
+  },
+  {
+    "product": "Marshall Major IV Iconic Headphones",
+    "price":9999,
+    "link":"https://amzn.in/d/9fmKmSw"
+  },
+  {
+    "product": "HP GK400F Wired Gaming Keyboard",
+    "price":1799,
+    "link":"https://amzn.in/d/he4E1gZ"
+  },
+  {
+     "product": "Redragon K617 Fizz Wired Mechanical Keyboard",
+    "price":2789,
+    "link":"https://amzn.in/d/5JHXnbQ"
+  },
+  {
+     "product": "Zebronics Zeb-KM2100 Wired Keyboard",
+    "price":249,
+    "link":"https://amzn.in/d/i2ZqQ0N"
+  },
+  {
+    "product": "Cosmic Byte CB-GK-16 Firefly",
+    "price":2199,
+    "link":"https://amzn.in/d/5u5Wrhe"
+  },
+  {
+    "product": "Dell KB216 Wired Keyboard",
+    "price":1095,
+    "link":"https://amzn.in/d/0lp1q8C"
+  },
+  {
+    "product": "TVS Gold Bharat Mechanical Keyboard",
+    "price":2599,
+    "link":"https://amzn.in/d/8pGEtDq"
+  },
+  {
+    "product": "HyperX Alloy Origins Core",
+    "price":8533,
+    "link":"https://amzn.in/d/911E4W7"
+  },
+  {
+   "product": "Logitech K380 Multi-Device Bluetooth Keyboard",
+    "price":2995,
+    "link":"https://amzn.in/d/cvQcsLR" 
+  },
+  {
+     "product": "Lenovo 300 Wired Keyboard & Mouse Combo",
+    "price":1449,
+    "link":"https://amzn.in/d/0aS1V0u"
+  },
+  {
+     "product": "Titan Smart 3 Smartwatch",
+    "price":4995,
+    "link":"https://amzn.in/d/3fvIAmr"
+  },
+  {
+    
+    "product": "boAt Xtend Smartwatch",
+    "price":1257,
+    "link":"https://amzn.in/d/4gb4Fm0"
+  },
+  {
+   "product": "Fire-Boltt Ninja Call Pro Plus Smartwatch",
+    "price":1399,
+    "link":"https://amzn.in/d/ilCarXq"
+  },
+  {
+   "product": "Samsung Galaxy Watch 4 Smartwatch",
+    "price":13999,
+    "link":"https://amzn.in/d/esPndXH"
+  },
+  {
+   "product": "Amazfit Bip 5 Smartwatch",
+    "price":6499,
+    "link":"Amazfit Bip 5 Smartwatch"
+  },
+  {
+   "product": "Fastrack Reflex Play Smartwatch",
+    "price":7875,
+    "link":"https://amzn.in/d/hc2aq8U"
+  },
+  {
+   "product": "Fire-Boltt Phoenix AMOLED Smartwatch",
+    "price":1399,
+    "link":"https://amzn.in/d/bf0xJqA"
+  },
+  {
+    "product": "CrossBeats Ignite S5 Smartwatch",
+    "price":2998,
+    "link":"https://amzn.in/d/iVMjBLP"
   }
 ]
