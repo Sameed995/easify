@@ -1,2 +1,21 @@
-﻿node_modules/
-echo ".env" >> .gitignore
+﻿# Ignore node modules
+node_modules/
+
+# Ignore environment secrets
+.env
+
+# Logs
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE/editor settings
+.vscode/
+.idea/
+
+# Dev-only scripts
+update.js
+seedProducts.js
+mockProducts.json
