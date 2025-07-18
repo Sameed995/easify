@@ -34,7 +34,7 @@ app.use(session({
 }));
 
 // MongoDB Connection
-mongoose.connect("mongodb+srv://sameedshaikh445:sameedshaikhmongodb55@easify.m6ebi.mongodb.net/?retryWrites=true&w=majority&appName=easify", {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
