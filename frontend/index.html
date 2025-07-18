@@ -188,6 +188,15 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       text-decoration: none;
     }
+
+    #login-message {
+      display: none;
+      text-align: center;
+      font-weight: bold;
+      color: #555;
+      margin: 20px auto;
+      font-size: 1rem;
+    }
   </style>
 </head>
 <body>
@@ -215,6 +224,9 @@
   </div>
 
   <div class="product-list" id="product-list"></div>
+
+  <!-- ⬇️ Message shown outside the product cards -->
+  <p id="login-message">Login to view more products!</p>
 
   <a href="cart.html" id="cart" class="cart-button">
     <span id="cart-count">0</span> items in cart
@@ -272,16 +284,21 @@
         const products = await res.json();
 
         const productList = document.getElementById('product-list');
+        const loginMessage = document.getElementById('login-message');
         productList.innerHTML = '';
 
         if (products.length === 0) {
           productList.innerHTML = '<p>No products found.</p>';
+          loginMessage.style.display = 'none';
           return;
         }
 
         products.sort(() => 0.5 - Math.random());
 
-        products.forEach(product => {
+        const loggedInUser = localStorage.getItem('loggedInUser');
+        const visibleProducts = loggedInUser ? products : products.slice(0, 3);
+
+        visibleProducts.forEach(product => {
           const div = document.createElement('div');
           div.classList.add('product');
           div.setAttribute('data-name', product.name);
@@ -299,10 +316,21 @@
 
           productList.appendChild(div);
         });
+
+        // Show or hide login message
+        loginMessage.style.display = (!loggedInUser && products.length > 3) ? 'block' : 'none';
+
       } catch (err) {
         console.error('Failed to load products:', err);
       }
     }
+
+    // Fix for back button after logout
+    window.addEventListener('pageshow', function (event) {
+      if (event.persisted || performance.getEntriesByType("navigation")[0].type === "back_forward") {
+        location.reload();
+      }
+    });
   </script>
 </body>
 </html>
