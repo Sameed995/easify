@@ -53,8 +53,7 @@ Visit: http://localhost:3000
 
 easify/  
 ├── controllers/ # Backend controllers  
-├── data/ # Static/mock data (optional)  
-├── dev/ # Dev utilities or scripts  
+├── data/ # Static/mock data 
 ├── frontend/ # Source HTML/CSS/JS files  
 ├── middlewares/ # Express middleware  
 ├── models/ # Mongoose schemas  
