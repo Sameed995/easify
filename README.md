@@ -38,20 +38,21 @@ npm install
 
 Create a `.env` file in the root directory and add:
 
+```bash
 MONGO_URI=your_mongodb_connection_string  
 PORT=3000  
 SESSION_SECRET=your_secret_key  
-
+```
 Then start the server:
-
+```
 node server.js  
-
-Visit: http://localhost:3000
+```
+Visit: ```http://localhost:3000```
 
 ---
 
 ## 📁 Project Structure
-
+```plain text
 easify/  
 ├── controllers/ # Backend controllers  
 ├── data/ # Static/mock data 
@@ -66,7 +67,7 @@ easify/
 ├── package-lock.json  
 ├── server.js # Main server file  
 └── README.md # You are here!
-
+```
 ---
 
 ## 📌 TODO / Future Features
