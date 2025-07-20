@@ -32,7 +32,7 @@
 ## 🚀 Getting Started
 
 ### 1. Clone the repository
-git clone https://github.com/your-username/easify.git
+git clone https://github.com/your-username/easify.git 
 cd easify
 
 ### 2. Install Dependencies
