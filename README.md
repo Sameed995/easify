@@ -31,7 +31,7 @@
 
 ## 🚀 Getting Started
 
-git clone https://github.com/your-username/easify.git  
+git clone https://github.com/Sameed995/easify.git  
 cd easify  
 npm install  
 
