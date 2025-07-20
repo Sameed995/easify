@@ -32,8 +32,48 @@
 ## 🚀 Getting Started
 
 ### 1. Clone the repository
-
-```bash
 git clone https://github.com/your-username/easify.git
 cd easify
+
 ### 2. Install Dependencies
+npm install
+
+### 3. Configure Environment Variables
+MONGO_URI=your_mongodb_connection_string
+PORT=3000
+SESSION_SECRET=your_secret_key
+Replace the values with your actual MongoDB URI and a secure secret key for sessions.
+
+### 4.Start the Server
+node server.js
+
+
+## 📁 Project Structure
+easify/
+├── controllers/ # Backend controllers
+├── data/ # Static/mock data (optional)
+├── dev/ # Dev utilities or scripts
+├── frontend/ # Source HTML/CSS/JS files
+├── middlewares/ # Express middleware
+├── models/ # Mongoose schemas
+├── node_modules/ # Node dependencies
+├── public/ # Public static assets (for serving to client)
+├── routes/ # Express route handlers
+├── .env # Environment variables
+├── .gitignore
+├── package.json
+├── package-lock.json
+├── server.js # Main server file
+└── README.md # You are here!
+
+## 📌 TODO / Future Features
+
+✅ Admin panel to manage products
+
+✅ Real vendor price API integration
+
+🔄 Wishlist & Order History
+
+💳 Payment gateway (Stripe/Razorpay)
+
+🌐 Product review and rating system
