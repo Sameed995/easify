@@ -6,74 +6,74 @@
 
 ## 🔍 Features
 
-- 🛒 Product browsing with price comparisons
-- 🔐 User authentication (Login / Register)
-- 🧾 Add to Cart
-- 📦 View Product Details
-- 🔎 Search & Filter products
-- 🌐 Clean and responsive UI using HTML/CSS/JavaScript
+- 🛒 Product browsing with price comparisons  
+- 🔐 User authentication (Login / Register)  
+- 🧾 Add to Cart  
+- 📦 View Product Details  
+- 🔎 Search & Filter products  
+- 🌐 Clean and responsive UI using HTML/CSS/JavaScript  
 
 ---
 
 ## 🛠️ Tech Stack
 
-**Frontend:**
-- HTML5
-- CSS3
-- JavaScript (Vanilla)
+**Frontend:**  
+- HTML5  
+- CSS3  
+- JavaScript (Vanilla)  
 
-**Backend:**
-- Node.js
-- Express.js
-- MongoDB (via Mongoose)
+**Backend:**  
+- Node.js  
+- Express.js  
+- MongoDB (via Mongoose)  
 
 ---
 
 ## 🚀 Getting Started
 
-### 1. Clone the repository
-git clone https://github.com/your-username/easify.git 
-cd easify
+git clone https://github.com/your-username/easify.git  
+cd easify  
+npm install  
 
-### 2. Install Dependencies
-npm install
+Create a `.env` file in the root directory and add:
 
-### 3. Configure Environment Variables
-MONGO_URI=your_mongodb_connection_string
-PORT=3000
-SESSION_SECRET=your_secret_key
-Replace the values with your actual MongoDB URI and a secure secret key for sessions.
+MONGO_URI=your_mongodb_connection_string  
+PORT=3000  
+SESSION_SECRET=your_secret_key  
 
-### 4.Start the Server
-node server.js
+Then start the server:
 
+node server.js  
+
+Visit: http://localhost:3000
+
+---
 
 ## 📁 Project Structure
-easify/
-├── controllers/ # Backend controllers
-├── data/ # Static/mock data (optional)
-├── dev/ # Dev utilities or scripts
-├── frontend/ # Source HTML/CSS/JS files
-├── middlewares/ # Express middleware
-├── models/ # Mongoose schemas
-├── node_modules/ # Node dependencies
-├── public/ # Public static assets (for serving to client)
-├── routes/ # Express route handlers
-├── .env # Environment variables
-├── .gitignore
-├── package.json
-├── package-lock.json
-├── server.js # Main server file
+
+easify/  
+├── controllers/ # Backend controllers  
+├── data/ # Static/mock data (optional)  
+├── dev/ # Dev utilities or scripts  
+├── frontend/ # Source HTML/CSS/JS files  
+├── middlewares/ # Express middleware  
+├── models/ # Mongoose schemas  
+├── node_modules/ # Node dependencies  
+├── public/ # Public static assets (for serving to client)  
+├── routes/ # Express route handlers  
+├── .env # Environment variables  
+├── .gitignore  
+├── package.json  
+├── package-lock.json  
+├── server.js # Main server file  
 └── README.md # You are here!
+
+---
 
 ## 📌 TODO / Future Features
 
-✅ Admin panel to manage products
-
-✅ Real vendor price API integration
-
-🔄 Wishlist & Order History
-
-💳 Payment gateway (Stripe/Razorpay)
-
-🌐 Product review and rating system
+✅ Admin panel to manage products  
+✅ Real vendor price API integration  
+🔄 Wishlist & Order History  
+💳 Payment gateway (Stripe/Razorpay)  
+🌐 Product review and rating system  
