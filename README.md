@@ -30,10 +30,11 @@
 ---
 
 ## 🚀 Getting Started
-
+```bash
 git clone https://github.com/Sameed995/easify.git  
 cd easify  
-npm install  
+npm install
+``` 
 
 Create a `.env` file in the root directory and add:
 
