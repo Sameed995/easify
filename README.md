@@ -36,3 +36,4 @@
 ```bash
 git clone https://github.com/your-username/easify.git
 cd easify
+### 2. Install Dependencies
