@@ -60,7 +60,6 @@ easify/
 ├── node_modules/ # Node dependencies  
 ├── public/ # Public static assets (for serving to client)  
 ├── routes/ # Express route handlers  
-├── .env # Environment variables  
 ├── .gitignore  
 ├── package.json  
 ├── package-lock.json  
