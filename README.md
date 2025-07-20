@@ -66,7 +66,7 @@ easify/
 ├── package.json  
 ├── package-lock.json  
 ├── server.js # Main server file  
-└── README.md # You are here!
+└── README.md 
 ```
 ---
 
